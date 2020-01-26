@@ -12,7 +12,6 @@ from django.template.loader import get_template
 from django.template import Context
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
-import django_filters
 from .forms import *
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import get_template
