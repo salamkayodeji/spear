@@ -29,7 +29,8 @@ SECRET_KEY = 'ubj(9ph_e1q$3#to_1(ybd!^otjd%&e-jqsy$2h$zk9y6ai96y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.spearheadtraining.org']
+#ALLOWED_HOSTS = ['www.spearheadtraining.org']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
