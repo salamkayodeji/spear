@@ -10,11 +10,16 @@ from .models import contact
 
 class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('category', )
+    prepopulated_fields = {'slug': ('category',)}
+
+
 
 
 class PostAdmin(admin.ModelAdmin):
-    ...
     search_fields = ('coursename', )
+    prepopulated_fields = {'slug': ('coursecategory',)}
+
+
 
 
 admin.site.register(Post, PostAdmin)

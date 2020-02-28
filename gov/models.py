@@ -7,6 +7,9 @@ from typing import Optional
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.query import QuerySet
 from slugify import slugify
+from django.db.models.signals import pre_save
+from django.utils.text import slugify
+
 
 
 
@@ -20,14 +23,14 @@ class CategoryManager(models.Manager):
         return self.filter(slug)
 
 class Category(models.Model):
-    category = models.CharField(max_length=100)
+    category = models.CharField(max_length=200)
     logo = models.ImageField(null=True, blank=True, upload_to="headshots/")
-    creator = models.ForeignKey(User, on_delete=models.CASCADE,)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, blank = True, null = True)
     description = models.TextField(default='description', blank = True, null = True)
     coursename = models.CharField(max_length=50, blank = True, null = True)
     slug = models.SlugField(null=True, unique=True) # new
     popular = models.BooleanField(null=True, blank=True)
-    email = models.EmailField(null=True, blank=True, max_length=254)
+    email = models.CharField(null=True, blank=True, max_length=500)
     objects = CategoryManager()
 
 
@@ -44,10 +47,27 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('dash:category_detail', kwargs={'slug': self.slug})
 
+    def _get_unique_slug(self):
+        slug = slugify(self.category)
+        unique_slug = slug
+        num = 1
+        while Category.objects.filter(slug=unique_slug).exists():
+            unique_slug = '{}-{}'.format(slug, num)
+            num += 1
+        return unique_slug
+ 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self._get_unique_slug()
+        super().save(*args, **kwargs)
+
     
 class Post(models.Model):     
-    coursecategory = models.ForeignKey(Category, on_delete=models.CASCADE)
-    coursename = models.CharField(max_length=50)
+    coursecategory = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE, blank = True, null = True)
+
+    coursename = models.CharField(max_length=200)
     amount = models.CharField(max_length=10)
     content = RichTextField(default = 'content', blank = True, null = True)
     img = models.ImageField(null=True, blank=True, upload_to="headshots/")
@@ -58,21 +78,14 @@ class Post(models.Model):
     venue_2 = models.CharField(max_length=200, blank=True, null=True)
     venue_3 = models.CharField(max_length=200, blank=True, null=True)
     venue_4 = models.CharField(max_length=200, blank=True, null=True)
-
-    slug = models.SlugField(max_length=200, default='null')
-    course_slug = models.SlugField(null=True) # new
-
-
-    
     date_1 = models.DateField(null=True, blank=True)
     date_2 = models.DateField(null=True, blank=True)
     date_3 = models.DateField(null=True, blank=True)
     date_4 = models.DateField(null=True, blank=True) 
     date_5 = models.DateField(null=True, blank=True)
     date_6 = models.DateField(null=True, blank=True) 
-    date_7 = models.DateField(null=True, blank=True)
-    date_8 = models.DateField(null=True, blank=True)
-    email = models.EmailField(default = 'Enter email here', max_length=254)
+    slug = models.SlugField(db_index=True, max_length=50, null=True)
+    email = models.CharField(null=True, blank=True, max_length=500)
     banner = models.ImageField(null=True, blank=True, upload_to="headshots/")
     class Meta:
         verbose_name_plural = "Posts"
@@ -90,6 +103,11 @@ class event(models.Model):
     description = models.TextField()
     day = models.IntegerField()
     month= models.CharField(max_length=10)
+    class Meta:
+        verbose_name_plural = "Events"
+
+    def __str__(self):
+        return self.name
 
 class Gallery(models.Model):
     name = models.CharField(max_length=20)

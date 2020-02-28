@@ -16,7 +16,7 @@ urlpatterns = [
      url(r'^category/$', views.CourseCategory.as_view(), name ='CourseCategory'),
      url(r'^gallery/$', views.gallery.as_view(), name ='gallery'),
      path('coursedetail/<int:pk>/', views.coursedetail.as_view(), name = 'coursedetail'),
-     path('courselist/<slug:slug>', views.CourseList.as_view(), name = 'courselist'),
+     path('courselist/<int:pk>', views.CourseList.as_view(), name = 'courselist'),
      url(r'^search/$', searchposts, name='searchposts'),
      url(r'^contact/$', contact_us, name='contact'),
      

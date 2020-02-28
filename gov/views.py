@@ -66,7 +66,7 @@ class CourseList(ListView):
     context_object_name = 'post'
     def get_queryset(self, *args, **kwargs):
 
-        return  Post.objects.filter(slug=self.kwargs ['slug'])
+        return  Post.objects.filter(coursecategory=self.kwargs ['pk'])
     
    
    

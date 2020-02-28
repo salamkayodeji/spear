@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'dash',
     'bootstrapform',
     'crispy_forms',
+    'django_filters',
+    'django_extensions',
+
 
 ]
 
@@ -59,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #Simplified static file serving.
     #https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+   # 'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
 
@@ -157,9 +160,9 @@ LOGIN_URL = 'dash:login'
 LOGIN_REDIRECT_URL = 'dash:Home'
 LOGOUT_REDIRECT_URL = 'dash:Home'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'salamkayodeji@gmail.com'
-EMAIL_HOST_PASSWORD = 'password'
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_HOST_USER = 'postmaster@sandbox38165242a5844e3d92d7f050545fa9bc.mailgun.org'
+EMAIL_HOST_PASSWORD = 'e46a503c3046386d2a190d7e9a767c7c-9dda225e-b7efad25'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

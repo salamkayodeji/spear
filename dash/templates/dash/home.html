@@ -14,10 +14,10 @@
             {% for category in category  %}
             
             <tr>
-                <td><a href="{% url 'dash:post_list' slug=category.slug %}">{{ category.category }}</a></td>
+                <td><a href="{% url 'dash:post_list' pk=category.pk %}">{{ category.category }}</a></td>
             </tr>
             <td>
-                <td><a href="{% url 'dash:category_update' slug=category.slug %}">&#9998 SEND</a></td>
+                <td><a href="{% url 'dash:category_update' pk=category.pk %}">&#9998 SEND</a></td>
 
                     
             </td>

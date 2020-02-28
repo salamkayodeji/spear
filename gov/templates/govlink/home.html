@@ -169,17 +169,17 @@
                     <div class="flat-courses style1">
                         <div class="courses-thumbnail" class = "img-fluid" style="width:300px;height:300px">
                             {%if Category.logo%}
-                            <a href="{% url 'govlink:courselist' slug=Category.slug %}"><img src="{{ Category.logo.url }}"  alt="image" style="width:300px;height:200px"></a>
+                            <a href="{% url 'govlink:courselist' pk=Category.pk %}"><img src="{{ Category.logo.url }}"  alt="image" style="width:300px;height:200px"></a>
                             {%endif%}
                             <div class="courses-description">
                                 <p class="desc"></p>
                                 <p class="courses-duration">Course Duration: 1 Week</p>
                                 <p class="degree-level">Degree level: All levels</p>
                             </div> 
-                            <a class="courses-viewmore" href="{% url 'govlink:courselist' slug=Category.slug %}">Open</a>
+                            <a class="courses-viewmore" href="{% url 'govlink:courselist' pk=Category.pk %}">Open</a>
                         </div>
                         <div class="courses-content">
-                            <a href="{% url 'govlink:courselist' slug=Category.slug %}"><h6 class="courses-topic">{{Category.category}}</h6></a>
+                            <a href="{% url 'govlink:courselist' pk=Category.pk %}"><h6 class="courses-topic">{{Category.category}}</h6></a>
                         </div>
                         
                          </div><!-- /.flat-courses -->
@@ -353,7 +353,7 @@
                             <div class="meta">                                
                                 <div class="location">{{event.location}}</div>
                                 <div class="content">
-                                    <p>{{event.description|truncatechars:20 }}</p>
+                                    <p>{{event.description|truncatechars:200 }}</p>
                                 </div>
                             </div>
                         </div><!-- /.event-wrapper -->                            

@@ -45,7 +45,7 @@ class PostList(ListView):
     context_object_name = 'post'
     def get_queryset(self, *args, **kwargs):
 
-        return  Post.objects.filter(slug=self.kwargs ['slug'])
+        return  Post.objects.filter(coursecategory=self.kwargs ['pk'])
 
 
             
@@ -117,10 +117,20 @@ def postemail(request, pk):
             obj = form.save(commit=False)
             subject = "Course"
             from_email = settings.EMAIL_HOST_USER
-            to_email = [obj.email]
+            
+            recipient_list = [obj.email]
+            emails= []
+
+            if ',' in recipient_list:
+                for recipient in recipient_list:
+
+                    emails = recipient_list.split(',')
+            else:
+                emails.append(recipient_list) 
+
             with open(settings.BASE_DIR + "/templates/postmail.txt") as f:
                 signup_message = f.read()
-            message  = EmailMultiAlternatives(subject=subject, body=signup_message, from_email=from_email, to=to_email)
+            message  = EmailMultiAlternatives(subject=subject, body=signup_message, from_email=from_email, to=emails)
             context={
                 'obj':obj
             }
@@ -134,9 +144,10 @@ def postemail(request, pk):
     return render(request, template, context)
 @login_required
 
-def categoryemail(request, slug):
-    obj = Category.objects.get(slug=slug)
+def categoryemail(request, pk):
+    obj = Category.objects.get(pk=pk)
     form = CategorySendForm(instance=obj)
+    
     if request.method == 'POST':
         form = CategorySendForm(data=request.POST, instance=obj)
         if form.is_valid():
@@ -147,6 +158,7 @@ def categoryemail(request, slug):
             with open(settings.BASE_DIR + "/templates/categoryemail.txt") as f:
                 signup_message = f.read()
             message  = EmailMultiAlternatives(subject=subject, body=signup_message, from_email=from_email, to=to_email)
+          
             context={
                 'obj':obj,
             }

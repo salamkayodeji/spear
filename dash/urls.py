@@ -19,11 +19,11 @@ urlpatterns = [
      url(r'^category/add/$', views.CategoryCreate.as_view(), name='category_add'),
      url(r'^category/(?P<pk>[\d]+)/delete/$', views.CategoryDelete.as_view(), name='category_delete'),
      url(r'^category/(?P<pk>[\d]+)/$', views.CategoryDetail.as_view(), name='category_detail'),
-     path('postlist/<slug:slug>', views.PostList.as_view(), name='post_list'),
+     path('postlist/<int:pk>', views.PostList.as_view(), name='post_list'),
      url(r'^post/add/$', views.PostCreate.as_view(), name='post_add'),
      url(r'^post/(?P<pk>[\d]+)/delete/$', views.PostDelete.as_view(), name='post_delete'),
      path('post/<int:pk>', postemail, name='post_update'),
-     path('category/<slug:slug>', categoryemail, name='category_update'),
+     path('category/<int:pk>', categoryemail, name='category_update'),
 
 
 

@@ -33,12 +33,12 @@
                     <div class="flat-courses">
                         <div class="courses-thumbnail" class = "img-fluid" style="width:300px;height:300px">
                             {%if categories.logo%}
-                            <a href="{% url 'govlink:courselist' slug=categories.slug %}"><img src="{{ categories.logo.url }}" class = "img-fluid" alt="image" style="width:300px;height:200px"></a>
+                            <a href="{% url 'govlink:courselist' pk=categories.pk %}"><img src="{{ categories.logo.url }}" class = "img-fluid" alt="image" style="width:300px;height:200px"></a>
                            {%endif%}
-                            <a class="courses-viewmore" href="{% url 'govlink:courselist' slug=categories.slug %}">{{ categories.category }}</a>
+                            <a class="courses-viewmore" href="{% url 'govlink:courselist' pk=categories.pk %}">{{ categories.category }}</a>
                         </div>
                         <div class="courses-content">
-                            <a href="{% url 'govlink:courselist' slug=categories.slug %}"><h6 class="courses-topic">{{ categories.category }}</h6></a>
+                            <a href="{% url 'govlink:courselist' pk=categories.pk %}"><h6 class="courses-topic">{{ categories.category }}</h6></a>
                             <p>{{ categories.creator }}</p>
                         </div>
                     </div><!-- /.flat-courses -->
