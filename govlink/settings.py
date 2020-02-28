@@ -27,9 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ubj(9ph_e1q$3#to_1(ybd!^otjd%&e-jqsy$2h$zk9y6ai96y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['www.spearheadtraining.com']
 
 
 # Application definition
