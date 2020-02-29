@@ -10,6 +10,6 @@ class SendForm(forms.ModelForm):
 
 class CategorySendForm(forms.ModelForm):
     class Meta:
-        model = Category
-        fields = ['category', 'logo', 'email']
+        model = Post
+        fields = ('coursecategory', 'email')
         

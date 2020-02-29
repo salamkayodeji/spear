@@ -90,12 +90,20 @@ class Post(models.Model):
     class Meta:
         verbose_name_plural = "Posts"
 
+    def __iter__(self):
+
+            return iter ( 
+                          self.coursename,)
+
+
     def __str__(self):
         return self.coursename
 
     def get_absolute_url(self):
         return reverse('gov:course_detail', kwargs={'slug': self.slug})
- 
+    
+    
+    
 
 class event(models.Model):
     name = models.CharField(max_length=100)

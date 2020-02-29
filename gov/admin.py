@@ -18,6 +18,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     search_fields = ('coursename', )
     prepopulated_fields = {'slug': ('coursecategory',)}
+    fields = ('coursename', 'amount')
 
 
 

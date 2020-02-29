@@ -119,14 +119,14 @@ def postemail(request, pk):
             from_email = settings.EMAIL_HOST_USER
             
             recipient_list = [obj.email]
-            emails= []
+            emails= ()
 
-            if ',' in recipient_list:
-                for recipient in recipient_list:
+            if ',' in recipient_list(','):
+                for recipient in recipient_list.split:
 
-                    emails = recipient_list.split(',')
+                    emails = recipient_list
             else:
-                emails.append(recipient_list) 
+                emails=recipient_list 
 
             with open(settings.BASE_DIR + "/templates/postmail.txt") as f:
                 signup_message = f.read()
@@ -145,7 +145,7 @@ def postemail(request, pk):
 @login_required
 
 def categoryemail(request, pk):
-    obj = Category.objects.get(pk=pk)
+    obj = Post.objects.filter(pk=pk).first()
     form = CategorySendForm(instance=obj)
     
     if request.method == 'POST':
