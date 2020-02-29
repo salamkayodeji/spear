@@ -45,7 +45,7 @@ class CourseCategory(ListView):
     model = Category
     template_name = 'govlink/course_categories.html'
     context_object_name= 'categories'
-    paginate_by='15'
+    paginate_by='6'
 
 
     
