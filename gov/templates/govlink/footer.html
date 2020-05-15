@@ -1,71 +1,87 @@
  {% load static %}
- <!-- Footer -->
-    <footer class="footer">        
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="widget widget-text">
-                        <img src="{% static "img/logo.png" %}" style= "height:100px" alt="logo-footer">
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="widget widget-text">
+                    <img src="{% static " img/logo.png " %}" style="height:100px" alt="logo-footer">
+                </div>
+            </div>
+            <!-- /.col-md-12 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="sidebar-inner-footer">
+                    <div class="widget widget-infomation">
+                        <ul class="flat-information">
+                            <li class="email"><a href="info@spearhead.org">info@spearhead.org</a></li>
+                            <li class="phone"><a href="+234 8097770189">+234 8097770189</a></li>
+                            <li class="address">Sunnyvale Estate, House number FF1, Patrick Fluret Street, Lokogoma, Abuja</li>
+                            <li class="address">Aneex Address: 4th Floor Bayelsa State Guest House, CBD, Abuja.</li>
+
+
+                        </ul>
                     </div>
-                </div><!-- /.col-md-12 -->    
-            </div><!-- /.row -->    
+                </div>
+                <!-- /.sidebar-inner-footer -->
+            </div>
+            <!-- /.col-md-12 -->
+        </div>
+        <!-- /.row -->
 
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="sidebar-inner-footer">
-                        <div class="widget widget-infomation">
-                            <ul class="flat-information">
-                                <li class="email"><a href="training@spearhead.com">training@spearhead.com</a></li>  
-                                <li class="phone"><a href="+234 823262908">+234 823262908</a></li>
-                                <li class="address">2nd floor Bayelsa Guest House Abuja</li>
-                                
-                            </ul>
-                        </div>
-                    </div><!-- /.sidebar-inner-footer -->    
-                </div><!-- /.col-md-12 -->    
-            </div><!-- /.row -->    
+        <div class="row">
+            <div class="footer-widgets">
+                <div class="col-md-2">
+                    <div class="widget widget_categories">
+                        <h4 class="widget-title">Links</h4>
+                        <ul>
+                            <li><a href="{url 'govlink:CourseCategory'}">courses</a></li>
+                            <li><a href="#">Events</a></li>
 
-            <div class="row"> 
-                <div class="footer-widgets">
-                    <div class="col-md-2">  
-                        <div class="widget widget_categories">
-                            <h4 class="widget-title">Links</h4>
-                            <ul>
-                                <li><a href="{url 'govlink:CourseCategory'}">courses</a></li>
-                                <li><a href="#">Events</a></li>
-                               
-                            </ul>
-                        </div><!-- /.widget -->      
-                    </div><!-- /.col-md-2 --> 
+                        </ul>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /.col-md-2 -->
 
-                   
 
-                    <div class="col-md-2">  
-                        <div class="widget widget_categories">
-                            <h4 class="widget-title">Our School</h4>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                               
-                                <li><a href="#">Contact</a></li>
-                               
-                            </ul>
-                        </div><!-- /.widget -->      
-                    </div><!-- /.col-md-2 --> 
 
-                    <div class="col-md-6">
-                        <div class="widget widget_mc4wp">
-                            <div id="mc4wp-form-1" class="form mc4wp-form clearfix">
-                                <form method="post">
-                                    <p> <label>Subscribe now and receive weekly newsletter with educational materials, new courses, interesting posts, popular books and much more!</label></p>
-                                    <p>
-                                    <input type="email" name="EMAIL" placeholder="Your email address" required="">                                   
+                <div class="col-md-2">
+                    <div class="widget widget_categories">
+                        <h4 class="widget-title">Our School</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+
+                            <li><a href="#">Contact</a></li>
+
+                        </ul>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /.col-md-2 -->
+
+                <div class="col-md-6">
+                    <div class="widget widget_mc4wp">
+                        <div id="mc4wp-form-1" class="form mc4wp-form clearfix">
+                            <form method="post">
+                                <p> <label>Subscribe now and receive weekly newsletter with educational materials, new courses, interesting posts, popular books and much more!</label></p>
+                                <p>
+                                    <input type="email" name="EMAIL" placeholder="Your email address" required="">
                                     <input type="submit" value="SUBSCRIBE">
-                                    </p>
-                               </form>
-                            </div>
-                        </div><!-- /.widget_mc4wp -->
-                    </div><!-- /.col-md-6 -->
-                </div><!-- /.footer-widgets -->
-            </div><!-- /.row -->    
-        </div><!-- /.container -->
-    </footer>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.widget_mc4wp -->
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.footer-widgets -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</footer>

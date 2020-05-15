@@ -1,194 +1,209 @@
-{% extends 'govlink/base.html' %}
-{% block content %}
-    <!-- Page title -->
-    <div class="page-title parallax parallax1">
-        <div class="overlay"></div>
+{% extends 'govlink/base.html' %} {% block content %}
+<!-- Page title -->
+<div class="page-title parallax parallax1">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title-heading">
+                    <h1 class="title">{{ post.category }}</h1>
+                    <div class="breadcrumbs">
+                        <ul>
+                            <li><a href="{url 'govlink:home'}">Home</a></li>
+                            <li>All Course </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.page-title-captions -->
+
+            </div>
+            <!-- /.col-md-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.page-title -->
+
+<!-- Course single -->
+<section class="flat-row">
+    <div class="course-single">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">                    
-                    <div class="page-title-heading">
-                        <h1 class="title">{{ post.category }}</h1>
-                        <div class="breadcrumbs">
-                            <ul>
-                                <li><a href="{url 'govlink:home'}">Home</a></li>
-                                <li>All Course </li>
-                            </ul>                   
+                <div class="col-md-8">
+                    <div class="course-entry">
+                        <h6 class="course-title">{{ post.coursename }}</h6>
+                        <ul class="course-info clearfix">
+                            <li class="teacher clearfix">
+
+                                <div class="info">
+                                    <p>{{ post.author }}</p>
+                                    <a href="#" class="name-teacher">{{ post.author }}</a>
+                                </div>
+                            </li>
+                            <li class="categories">
+                                <p>Categories</p>
+                                <a href="#" class="course-name">{{ post.category }}</a>
+                            </li>
+                            <li class="review">
+                                <p>Review</p>
+                                <ul class="review-rating">
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                </ul>
+                                <span class="value-review"><a href="#">( 3 REVIEWS )</a></span>
+                            </li>
+                        </ul>
+                        {% if post.img %}
+                        <div class="course-image"><img src="{{ post.img.url }}" alt="image"></div>
+                        {% endif %}
+                        <h6 class="title">description</h6>
+
+                        <div class="content-desc">
+                            <p>{{ post.content|safe }}</p>
+                            </p>
                         </div>
-                    </div><!-- /.page-title-captions --> 
-                    
-                </div><!-- /.col-md-12 -->  
-            </div><!-- /.row -->  
-        </div><!-- /.container -->                      
-    </div><!-- /.page-title -->
 
-    <!-- Course single -->
-    <section class="flat-row">
-        <div class="course-single">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="course-entry">
-                            <h6 class="course-title">{{ post.coursename }}</h6>
-                            <ul class="course-info clearfix">
-                                <li class="teacher clearfix">
-                                    
-                                    <div class="info">
-                                        <p>{{ post.author }}</p>
-                                        <a href="#" class="name-teacher">{{ post.author }}</a>
+
+
+                        <div class="course-rating">
+                            <h6 class="title">reviews</h6>
+                            <div class="average-rating">
+                                <p class="rating-title">Average Rating</p>
+                                <div class="rating-box">
+                                    <div class="average-value">5</div>
+                                    <div class="review-star">
+                                        <div class="review-stars-rated">
+                                            <ul class="review-rating">
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </li>
-                                <li class="categories">
-                                    <p>Categories</p>
-                                    <a href="#" class="course-name">{{ post.category }}</a>
-                                </li>
-                                <li class="review">
-                                    <p>Review</p>
-                                    <ul class="review-rating">
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    </ul>
-                                    <span class="value-review"><a href="#">( 3 REVIEWS )</a></span>
-                                </li>
-                            </ul>
-                            <div class="course-image"><img src="{{ post.img.url }}" alt="image"></div>
-                            <h6 class="title">description</h6>
-
-                            <div class="content-desc">
-                                <p>{{ post.content|safe }}</p>
-                                </p>
+                                    <div class="review-amount">6 Ratings</div>
+                                </div>
+                                <!-- /.rating-box -->
                             </div>
+                            <!-- /.average-rating -->
 
-                           
-                          
-                            <div class="course-rating">
-                                <h6 class="title">reviews</h6>
-                                <div class="average-rating">
-                                    <p class="rating-title">Average Rating</p>
-                                    <div class="rating-box">
-                                        <div class="average-value">5</div>
-                                        <div class="review-star">
-                                            <div class="review-stars-rated">
-                                                <ul class="review-rating">
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                </ul>
+                            <div class="detailed-rating">
+                                <p class="rating-title">Detailed Rating</p>
+                                <div class="rating-box">
+                                    <div class="detailed">
+                                        <div class="stars">
+                                            <div class="key">Star 5</div>
+                                            <div class="bar">
+                                                <div class="full-bar">
+                                                    <div style="width: 100%"></div>
+                                                </div>
                                             </div>
+                                            <div class="value">4</div>
                                         </div>
-                                        <div class="review-amount">6 Ratings</div>
-                                    </div><!-- /.rating-box -->
-                                </div><!-- /.average-rating --> 
-
-                                <div class="detailed-rating">
-                                    <p class="rating-title">Detailed Rating</p>
-                                    <div class="rating-box">
-                                        <div class="detailed">
-                                            <div class="stars">
-                                                <div class="key">Star 5</div>
-                                                <div class="bar">
-                                                    <div class="full-bar">
-                                                        <div style="width: 100%"></div>
-                                                    </div>
+                                        <div class="stars">
+                                            <div class="key">Star 4</div>
+                                            <div class="bar">
+                                                <div class="full-bar">
+                                                    <div style="width: 100%"></div>
                                                 </div>
-                                                <div class="value">4</div>
                                             </div>
-                                            <div class="stars">
-                                                <div class="key">Star 4</div>
-                                                <div class="bar">
-                                                    <div class="full-bar">
-                                                        <div style="width: 100%"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="value">2</div>
-                                            </div>
-                                            <div class="stars">
-                                                <div class="key">Star 3</div>
-                                                <div class="bar">
-                                                    <div class="full-bar">
-                                                        <div style="width: 0"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="value">0</div>
-                                            </div>
-                                            <div class="stars">
-                                                <div class="key">Star 2</div>
-                                                <div class="bar">
-                                                    <div class="full-bar">
-                                                        <div style="width: 0"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="value">0</div>
-                                            </div>
-                                            <div class="stars">
-                                                <div class="key"> Star 1 </div>
-                                                <div class="bar">
-                                                    <div class="full-bar">
-                                                        <div style="width: 0"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="value">0</div>
-                                            </div>
+                                            <div class="value">2</div>
                                         </div>
-                                    </div>  
-                                </div><!-- /.detailed-rating -->
-                            </div><!-- /.course-rating -->
-
-                            <div class="course-comment-post">
-                                <div class="comment-list-wrap">   
-                                    <ul class="comment-list">
-                                        <li>
-                                            
-                                        </li>
-
-                                        <li>
-                                           
-                                        </li>
-                                    </ul><!-- /.comment-list -->
-                                </div><!-- /.comment-list-wrap -->
-
-                                <div id="respond" class="course-comment-respond">
-                                    
-                                </div><!-- /#respond -->
+                                        <div class="stars">
+                                            <div class="key">Star 3</div>
+                                            <div class="bar">
+                                                <div class="full-bar">
+                                                    <div style="width: 0"></div>
+                                                </div>
+                                            </div>
+                                            <div class="value">0</div>
+                                        </div>
+                                        <div class="stars">
+                                            <div class="key">Star 2</div>
+                                            <div class="bar">
+                                                <div class="full-bar">
+                                                    <div style="width: 0"></div>
+                                                </div>
+                                            </div>
+                                            <div class="value">0</div>
+                                        </div>
+                                        <div class="stars">
+                                            <div class="key"> Star 1 </div>
+                                            <div class="bar">
+                                                <div class="full-bar">
+                                                    <div style="width: 0"></div>
+                                                </div>
+                                            </div>
+                                            <div class="value">0</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div><!-- /.course-entry -->
-                    </div><!-- /.col-md-8 -->
+                            <!-- /.detailed-rating -->
+                        </div>
+                        <!-- /.course-rating -->
 
-                    <div class="col-md-4">
-                        <div class="course-sidebar">
-                            <div class="course-widget-price">
-                                <h6 class="price">{{post.amount}}</h6>
-                                <ul>
+                        <div class="course-comment-post">
+                            <div class="comment-list-wrap">
+                                <ul class="comment-list">
                                     <li>
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        <span>Date 1</span>
-                                        <span class="time">{{post.date_1}} </span>
+
                                     </li>
+
                                     <li>
-                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                            <span>Date 2</span>
-                                            <span class="time">{{ post.date_2 }} </span>
-                                        </li>
-                                        <li>
-                                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                <span>Date 3</span>
-                                                <span class="time">{{ post.date_3 }} </span>
-                                            </li>
-                                            <li>
-                                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                    <span>Date 4</span>
-                                                    <span class="time">{{post.date_4}}</span>
-                                                </li>          
-                                    <li>
-                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                        <span>Duration</span>
-                                        <span class="time">1 week</span>
+
                                     </li>
-                                  <!--  <li>
+                                </ul>
+                                <!-- /.comment-list -->
+                            </div>
+                            <!-- /.comment-list-wrap -->
+
+                            <div id="respond" class="course-comment-respond">
+
+                            </div>
+                            <!-- /#respond -->
+                        </div>
+                    </div>
+                    <!-- /.course-entry -->
+                </div>
+                <!-- /.col-md-8 -->
+
+                <div class="col-md-4">
+                    <div class="course-sidebar">
+                        <div class="course-widget-price">
+                            <h6 class="price">{{post.amount}}</h6>
+                            <ul>
+                                <li>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    <span>Date 1</span>
+                                    <span class="time">{{post.date_1}} </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    <span>Date 2</span>
+                                    <span class="time">{{ post.date_2 }} </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    <span>Date 3</span>
+                                    <span class="time">{{ post.date_3 }} </span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    <span>Date 4</span>
+                                    <span class="time">{{post.date_4}}</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    <span>Duration</span>
+                                    <span class="time">1 week</span>
+                                </li>
+                                <!--  <li>
                                         <i class="fa fa-file" aria-hidden="true"></i>
                                         <span>Lectures</span>
                                         <span class="time">10</span>
@@ -198,60 +213,67 @@
                                         <span>Video</span>
                                         <span class="time">8 Hours</span>
                                     </li>-->
-                                    <li>
-                                        <i class="fa fa-users" aria-hidden="true"></i>
-                                        <span>Student</span>
-                                        <span class="time">30</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-level-up" aria-hidden="true"></i>
-                                        <span>Level</span>
-                                        <span class="time">All level</span>
-                                    </li>
-                                </ul>
-                                <h6 class="bt-course">Take this course</h6>
-                            </div><!-- /.widget-course-price -->
+                                <li>
+                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                    <span>Student</span>
+                                    <span class="time">30</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-level-up" aria-hidden="true"></i>
+                                    <span>Level</span>
+                                    <span class="time">All level</span>
+                                </li>
+                            </ul>
+                            <h6 class="bt-course">Take this course</h6>
+                        </div>
+                        <!-- /.widget-course-price -->
 
-                           
-                            <div class="course-widget-working-hours">
-                                <h6 class="course-widget-title">working hours</h6>
-                                <ul>
-                                    <li>
-                                        <span class="calendar">Monday</span>
-                                        <span class="hours">8:00 am - 6:00 pm</span>
-                                    </li>
-                                    <li>
-                                        <span class="calendar">Tuesday</span>
-                                        <span class="hours">8:00 am - 6:00 pm</span>
-                                    </li>
-                                    <li>
-                                        <span class="calendar">Wednesday</span>
-                                        <span class="hours">8:00 am - 6:00 pm</span>
-                                    </li>
-                                    <li>
-                                        <span class="calendar">Thursday</span>
-                                        <span class="hours">8:00 am - 6:00 pm</span>
-                                    </li>
-                                    <li>
-                                        <span class="calendar">Friday</span>
-                                        <span class="hours">8:00 am - 6:00 pm</span>
-                                    </li>
-                                    <li>
-                                        <span class="calendar">Saturday</span>
-                                        <span class="hours">Closed</span>
-                                    </li>
-                                    <li>
-                                        <span class="calendar">Sunday</span>
-                                        <span class="hours">Closed</span>
-                                    </li>
-                                </ul>
-                            </div><!-- /.course-widget-working-hours -->
-                        </div><!-- /.course-sidebar -->
-                    </div><!-- /.col-md-4 -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </div><!-- /.course-detail -->
-    </section>
-   
-    
+
+                        <div class="course-widget-working-hours">
+                            <h6 class="course-widget-title">working hours</h6>
+                            <ul>
+                                <li>
+                                    <span class="calendar">Monday</span>
+                                    <span class="hours">8:00 am - 6:00 pm</span>
+                                </li>
+                                <li>
+                                    <span class="calendar">Tuesday</span>
+                                    <span class="hours">8:00 am - 6:00 pm</span>
+                                </li>
+                                <li>
+                                    <span class="calendar">Wednesday</span>
+                                    <span class="hours">8:00 am - 6:00 pm</span>
+                                </li>
+                                <li>
+                                    <span class="calendar">Thursday</span>
+                                    <span class="hours">8:00 am - 6:00 pm</span>
+                                </li>
+                                <li>
+                                    <span class="calendar">Friday</span>
+                                    <span class="hours">8:00 am - 6:00 pm</span>
+                                </li>
+                                <li>
+                                    <span class="calendar">Saturday</span>
+                                    <span class="hours">Closed</span>
+                                </li>
+                                <li>
+                                    <span class="calendar">Sunday</span>
+                                    <span class="hours">Closed</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.course-widget-working-hours -->
+                    </div>
+                    <!-- /.course-sidebar -->
+                </div>
+                <!-- /.col-md-4 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.course-detail -->
+</section>
+
+
 {% endblock %}
