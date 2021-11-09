@@ -10,101 +10,79 @@
     <div class="tp-banner-container">
         <div class="tp-banner" >
             <ul>
-                <li data-transition="random-static" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
-                    <img src="{% static "img/slides/1.jpg" %}" alt="slider-image" />
+                {% for event in event %}
+                <li data-transition="random-static" data-slotamount="7" data-masterspeed="10" data-saveperformance="on">
+                    <img src="{{ event.image.url }}" alt="{{event.coursename}}" />
 
-                    <div class="tp-caption sfb title-slide color-white style1" data-x="15" data-y="254" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut">Meet new friends,<br>and study with experts</div>
-
-                    <div class="tp-caption sft desc-slide color-white" data-x="15" data-y="398" data-speed="1000" data-start="1500" data-easing="Power3.easeInOut">
-                    
-
-                    <div class="tp-caption sft center color-white flat-button-slide" data-x="15" data-y="528" data-speed="1000" data-start="2000" data-easing="Power3.easeInOut">
-                        <a href="#">View Our courses</a>
-                    </div>
-                </li>
-
-                <li data-transition="slideup" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
-                    <img src="{% static "img/slides/2.jpg" %}" alt="slider-image" />
-                    <div class="tp-caption sfl title-slide center" data-x="379" data-y="245" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut">
-                        Welcome To SPEARHEAD Solutions
+                    <div class="tp-caption sfb title-slide color-white style1" data-x="15" data-y="254" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut" style="background-color: black;"">{{event.coursename}}<br>{{event.description | safe |truncatechars:100}}</div>
+                    <div class="wrap all-categories">
+                        <button>All categories</button>
                     </div>  
-                    <div class="tp-caption sfr desc-slide center" data-x="306" data-y="322" data-speed="1000" data-start="1500" data-easing="Power3.easeInOut">                       
-                       SPEARHEAD are specialists in skills development and training for individuals and teams across all types of organisations,</br> large and small, public and private, domestic and international.
-                    </div>                            
-                </li>
 
-                <li data-transition="random-static" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
-                    <img src="{% static "img/slides/3.jpg" %}" alt="slider-image" />
-
-                    <div class="tp-caption sfb title-slide color-white center style2" data-x="315" data-y="285" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut">Welcome To SPEARHEAD</div>
-
-                    <div class="tp-caption sft desc-slide color-white center" data-x="387" data-y="370" data-speed="1000" data-start="1500" data-easing="Power3.easeInOut"></div>
-
-                    <div class="tp-caption sft center color-white flat-button-slide style1" data-x="484" data-y="463" data-speed="1000" data-start="2000" data-easing="Power3.easeInOut">
-                        <a href="#">learn more</a>
+                    <div class="tp-caption sft center color-dark flat-button-slide" data-x="15" data-y="528" data-speed="1000" data-start="2000" data-easing="Power3.easeInOut" style="background-color: black;">
+                        <a href="{% url 'govlink:event' slug=event.slug %}"><b>Learn More</b></a>
                     </div>
                 </li>
+                {%endfor%}
 
-                <li data-transition="slidedown" data-slotamount="7" data-masterspeed="1000" data-saveperformance="on">
-                    <img src="{% static "img/slides/4.jpg" %}" alt="slider-image" />
-
-                    <div class="tp-caption sft sub-title" data-x="480" data-y="232" data-speed="1000" data-start="1000" data-easing="Power3.easeInOut">Course, Online Courses Template</div>
-
-                    <div class="tp-caption sft title-slide color-white center style3" data-x="218" data-y="300" data-speed="1000" data-start="1500" data-easing="Power3.easeInOut">we will help to learn</div>
-
-                    <div class="tp-caption sfb desc-slide color-white center style1" data-x="319" data-y="381" data-speed="1000" data-start="2000" data-easing="Power3.easeInOut"></div>                        
-                </li>
-            </ul>
+                            </ul>
         </div>
     </div>
 
-     <!-- Flat iconbox left -->
-     <section class="flat-row pad-bottom90px">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6 col-xs-6">
-                        <div class="flat-iconbox">
-                            <div class="icon-image">
-                                <img src="{% static "img/course1.jpg" %}"  alt="image">
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#">Man Power development</a></h6>            
-                                
-                            </div>
-                            
-                        </div><!-- /.flat-iconbox -->
-                    </div><!-- /.col-md-3 -->
-    
-                    <div class="col-md-4 col-sm-6 col-xs-6">
-                        <div class="flat-iconbox">
-                            <div class="icon-image">
-                                <img src="{% static "img/course4.jpg" %}"  alt="image">
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#">Programming</a></h6>            
-                                <p></p> 
-                            </div>
-                            
-                        </div><!-- /.flat-iconbox -->
-                    </div><!-- /.col-md-3 -->
-    
-                    <div class="col-md-4 col-sm-6 col-xs-6">
-                        <div class="flat-iconbox">
-                            <div class="icon-image">
-                                <img src="{% static "img/course1.jpg" %}"  alt="image">
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#">Project Management</a></h6>            
-                                <p></p> 
-                            </div>
-                           
-                        </div><!-- /.flat-iconbox -->
-                    </div><!-- /.col-md-3 -->
-    
-                    
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </section>
+    <!-- Flat iconbox center style1 -->
+    <section class="flat-row pad-top85px pad-bottom85px">
+        <div class="container">
+            <div class="title-section">
+                <h1 class="title">Our Services</h1>
+               
+            </div><!-- /.title-section -->
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="flat-iconbox center style1">
+                        <div class="icon-image hi-icon-effect-3 hi-icon-effect-3b">
+                            <span class="hi-icon icon-Consulting"></span>
+                        </div>
+                        <div class="content">
+                            <h6 class="title"><a href="#">MANAGEMENT CONSULTING</a></h6>            
+                        </div>
+                    </div><!-- /.flat-iconbox center style1 -->
+                </div><!-- /.col-md-3 -->
+
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="flat-iconbox center style1">
+                        <div class="icon-image hi-icon-effect-3 hi-icon-effect-3b">
+                            <span class="hi-icon icon-Security-Block"></span>
+                        </div>
+                        <div class="content">
+                            <h6 class="title"><a href="#">SECURITY</a></h6>            
+                        </div>
+                    </div><!-- /.flat-iconbox center style1 -->
+                </div><!-- /.col-md-3 -->
+
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="flat-iconbox center style1">
+                        <div class="icon-image hi-icon-effect-3 hi-icon-effect-3b">
+                            <span class="hi-icon icon-Management"></span>
+                        </div>
+                        <div class="content">
+                            <h6 class="title"><a href="#">MANPOWER DEVELOPMENT</a></h6>            
+                        </div>
+                    </div><!-- /.flat-iconbox center style1 -->
+                </div><!-- /.col-md-3 -->
+
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="flat-iconbox center style1">
+                        <div class="icon-image hi-icon-effect-3 hi-icon-effect-3b">
+                            <span class="hi-icon icon-Globe-2"></span>
+                        </div>
+                        <div class="content">
+                            <h6 class="title"><a href="#">GEOGRAPHIC INFORMATION SYSTEMS</a></h6>            
+                        </div>
+                    </div><!-- /.flat-iconbox center style1 -->
+                </div><!-- /.col-md-3 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
     
     <!-- Flat fillter courses -->
     <section class="flat-row pad-top95px parallax parallax3 bg-black">
@@ -128,7 +106,6 @@
                         <div class="field clearfix">      
                             <div class="wrap-type-input">
                                 
-
                                 
                                 <div class="wrap courses-keyword">
                                             <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search posts"/>
@@ -215,7 +192,9 @@
                     <div class="about-us">
                         <h2 class="title-about-us">Why Choose Us</h2>
                         <div class="desc">
-                            <p>Our training delivery is of global best practice in view of our alliance with reputable establishments in United Kingdom, CANADA, USA, UAE-Dubai etc. SPEARHEAD is an accredited trainer and certified by Nigeria Council for Management Development,Lagos and many other agencies in different parts of the world. </p>                           
+                            <p>GOVLINK SOLUTIONS INC is a technology and management company based in the USA, with a solid capital base, sound management team as well as a dedicated team of professionals that is committed to building long lasting business relationship.
+
+                            </p>                           
                         </div>
                     </div><!-- /.about-us -->
 
@@ -323,64 +302,24 @@
     </section> /.flat-row -->
 
     <!-- Flat event style1-->
-    <section class="flat-row pad-bottom45px parallax parallax7 bg-black bg-p7">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="title-section style4">
-                        <h1 class="title">Event’s Coming Soon</h1>
-                    </div><!-- /.title-section -->
-                </div><!-- /.col-md-12 -->
-            </div><!-- /.row -->
-
-            <div class="flat-divider d20px"></div>
-
-            <div class="row">
-                    {% for event in event %}
-                <div class="col-md-6">
-                    <div class="flat-event style1">
-                        <div class="time-event">
-                            <div class="time-from">
-                                <div class="date">{{ event.day }}</div>
-                                <div class="month">{{ event.month }}</div>
-                            </div>
-                            <div class="hours"><p>9:00am - 5:00pm</p><p>1 week</p></div>
-                        </div><!-- /.time-event -->
-
-                        <div class="event-wrapper">
-                            <h5 class="title"><a href="#">{{event.name}}</a></h5>
-                            <div class="meta">                                
-                                <div class="location">{{event.location}}</div>
-                                <div class="content">
-                                    <p>{{event.description|truncatechars:200 }}</p>
-                                </div>
-                            </div>
-                        </div><!-- /.event-wrapper -->                            
-                    </div><!-- /.flat-event -->
-
-                    
-                </div><!-- /.col-md-6 -->
-                {%endfor%}
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </section>
+  
     <div class="view-event" style="background-color: #000; text-align: center;">
-        <a href="#">EVENTS</a>
+        <a href="#">CONTACT US</a>
     </div>
 
    
 
    
-    <div class="flat-divider d85px"></div>
 
+    
     <!-- Flat contact -->
-    <section class="flat-row bg-contact pad-top375px pad-bottom360px">
+    <section class="flat-row pad-bottom45px parallax parallax7 bg-black bg-p7">
+        <div class="overlay"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="wrap-contactform-home1">
-                        <form class="flat-contact-form border-radius field-large text-large" id="contactform6" method="POST" action="{% url 'govlink:contact' %}">
+                        <form class="flat-contact-form style2 border-white border-large" id="contactform6" method="POST" action="{% url 'govlink:contact' %}">
                              {% csrf_token %} 
                             <div class="field clearfix">      
                                 <div class="wrap-type-input">                    
@@ -404,6 +343,7 @@
                         </form><!-- /.comment-form -->   
                     </div><!-- /.wrap-contactform-home1 -->
                 </div><!-- /.col-md-12 -->
+                </div>
             </div><!-- /.row -->
         </div><!-- /.container -->
     </section>

@@ -121,19 +121,15 @@ def postemail(request, pk):
             msg['Subject'] = 'Course'
             msg['From'] = settings.EMAIL_HOST_USER
             msg['To'] = [obj.email]
-            
-            with open(settings.BASE_DIR + "/templates/postmail.txt") as f:
-                signup_message = f.read()   
-            context={
-                'obj':obj
-            }
-            html_template = get_template("dash/postemail.html").render(context)
-            msg.add_alternative(html_template, subtype='html')
-
-            with smtplib.SMTP('smtp.mailgun.org', 587) as smtp:
-                smtp.login('postmaster@sandbox38165242a5844e3d92d7f050545fa9bc.mailgun.org', '856e47cf87b582c06355cb69e72aa797-9dda225e-84fd6b21')
-
-                smtp.send_message(msg)
+            message = render_to_string('ash/postemail.html', {
+                'obj':obj,
+            }) 
+            msg = EmailMessage('Course', message, 'COINMAC <admin@coinmac.net>', msg['To'],
+                               reply_to=['training@coinmac.org'],)
+            msg.content_subtype = "html"  # Main content is now text/html
+            msg.send()
+           
+            messages.success(request, f'Your email to {obj.email} has been sent Successfully!')        
     context = {
         'form':form,
     }
@@ -156,21 +152,18 @@ def categoryemail(request, pk):
             msg['From'] = settings.EMAIL_HOST_USER
             msg['To'] = [obj.email]
             
-            with open(settings.BASE_DIR + "/templates/postmail.txt") as f:
-                signup_message = f.read()   
-            context={
-                'obj':obj
-                
-            }
-            html_template = get_template("dash/categoryemail.html").render(context)
-            msg.add_alternative(html_template, subtype='html')
-
-            with smtplib.SMTP('smtp.mailgun.org', 587) as smtp:
-                smtp.login('postmaster@sandbox38165242a5844e3d92d7f050545fa9bc.mailgun.org', '856e47cf87b582c06355cb69e72aa797-9dda225e-84fd6b21')
-
-                smtp.send_message(msg)
+            message = render_to_string('dash/categoryemail.html', {
+                'obj':obj,
+            })    
+            msg = EmailMessage('Course', message, 'COINMAC <admin@coinmac.net>', msg['To'],
+                               reply_to=['training@coinmac.org'],)
+            msg.content_subtype = "html"  # Main content is now text/html
+            msg.send()
+           
+            messages.success(request, f'Your email to {obj.email} has been sent Successfully!')        
     context = {
         'form':form,
     }
     template = "dash/send_email.html"
     return render(request, template, context)
+

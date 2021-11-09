@@ -1,4 +1,4 @@
-{% extends 'govlink/base.html' %} {% block content %}
+{% extends 'govlink/base.html' %} {% load humanize %} {% block content %}
 <!-- Page title -->
 <div class="page-title parallax parallax1">
     <div class="overlay"></div>
@@ -9,9 +9,11 @@
                     <h1 class="title">{{ post.category }}</h1>
                     <div class="breadcrumbs">
                         <ul>
-                            <li><a href="{url 'govlink:home'}">Home</a></li>
-                            <li>All Course </li>
-                        </ul>
+                            <li><a href="{ url 'govlink:home' }">Home</a></li>
+                            <li><a href="{ url 'govlink:CourseCategory' }">Category</a></li>
+                            <li><a href="{% url 'govlink:courselist' slug=post.slug %}">{{post.coursecategory}}</a></li>
+                            <li>{{ post.coursename }}</li>
+                    </ul>
                     </div>
                 </div>
                 <!-- /.page-title-captions -->
@@ -63,88 +65,24 @@
                         <h6 class="title">description</h6>
 
                         <div class="content-desc">
-                            <p>{{ post.content|safe }}</p>
-                            </p>
+                {%if post.content == "NULL" %}
+
+                <br>The course information for this selected course will soon be published on this page. For further enquiries, please call: </br>+1 901-319-4995 or send us email to: info@govlinksolutions.com.
+
+                </p>
+                {%else%}
+
+                <p>{{post.content | safe}}</p>
+
+                {%endif%}
+
                         </div>
 
 
 
                         <div class="course-rating">
-                            <h6 class="title">reviews</h6>
-                            <div class="average-rating">
-                                <p class="rating-title">Average Rating</p>
-                                <div class="rating-box">
-                                    <div class="average-value">5</div>
-                                    <div class="review-star">
-                                        <div class="review-stars-rated">
-                                            <ul class="review-rating">
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="review-amount">6 Ratings</div>
-                                </div>
-                                <!-- /.rating-box -->
-                            </div>
-                            <!-- /.average-rating -->
-
-                            <div class="detailed-rating">
-                                <p class="rating-title">Detailed Rating</p>
-                                <div class="rating-box">
-                                    <div class="detailed">
-                                        <div class="stars">
-                                            <div class="key">Star 5</div>
-                                            <div class="bar">
-                                                <div class="full-bar">
-                                                    <div style="width: 100%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="value">4</div>
-                                        </div>
-                                        <div class="stars">
-                                            <div class="key">Star 4</div>
-                                            <div class="bar">
-                                                <div class="full-bar">
-                                                    <div style="width: 100%"></div>
-                                                </div>
-                                            </div>
-                                            <div class="value">2</div>
-                                        </div>
-                                        <div class="stars">
-                                            <div class="key">Star 3</div>
-                                            <div class="bar">
-                                                <div class="full-bar">
-                                                    <div style="width: 0"></div>
-                                                </div>
-                                            </div>
-                                            <div class="value">0</div>
-                                        </div>
-                                        <div class="stars">
-                                            <div class="key">Star 2</div>
-                                            <div class="bar">
-                                                <div class="full-bar">
-                                                    <div style="width: 0"></div>
-                                                </div>
-                                            </div>
-                                            <div class="value">0</div>
-                                        </div>
-                                        <div class="stars">
-                                            <div class="key"> Star 1 </div>
-                                            <div class="bar">
-                                                <div class="full-bar">
-                                                    <div style="width: 0"></div>
-                                                </div>
-                                            </div>
-                                            <div class="value">0</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.detailed-rating -->
+                           
+                            
                         </div>
                         <!-- /.course-rating -->
 
@@ -176,7 +114,7 @@
                 <div class="col-md-4">
                     <div class="course-sidebar">
                         <div class="course-widget-price">
-                            <h6 class="price">{{post.amount}}</h6>
+                            <h6 class="price">${{post.amount|intcomma}}</h6>
                             <ul>
                                 <li>
                                     <i class="fa fa-calendar" aria-hidden="true"></i>

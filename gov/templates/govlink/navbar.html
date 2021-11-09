@@ -5,8 +5,8 @@
             <div class="col-md-6">
                 <div class="language">
                     <ul class="flat-information">
-                        <li class="email"><a href="info@spearhead.org">info@spearhead.org</a></li>
-                        <li class="phone"><a href="61383766284.html">+234 8097770189</a></li>
+                        <li class="email"><a href="info@govlinksolutions.com">info@govlinksolutions.com</a></li>
+                        <li class="phone"><a href="+1 901-319-4995">+1 901-319-4995</a></li>
 
                     </ul>
                 </div>
@@ -37,7 +37,7 @@
                 <div class="col-md-2">
                     <div id="logo" class="logo">
                         <a href=" {% url 'govlink:Home' %} " rel="home">
-                            <img src="{% static " img/logo.png " %}" style="height:71px" alt="image">
+                            <img src="{% static 'img/logo1.png' %}" style="height:71px" alt="image">
                         </a>
                     </div>
                     <!-- /.logo -->
@@ -56,6 +56,19 @@
                                     <a href="{% url 'govlink:Home' %}">Home</a>
 
                                 </li>
+                                <li class="home">
+                                    <a href="">Services</a>
+                                    <ul class="submenu"> 
+                                        {% for value in testname %}
+                                        <li><a href="http://127.0.0.1:8001/services/{{ value|slugify }}">{{ value }}</a></li>
+                                        {%endfor%}
+                                    </ul><!-- /.submenu -->
+                                </li>
+
+                                <li class="About">
+                                    <a href="{% url 'govlink:about' %}">About</a>
+
+                                </li>
                                 <li class="Course">
                                     <a href="{% url 'govlink:CourseCategory' %}">Course Category</a>
 
@@ -69,21 +82,7 @@
 
                                 </li>
 
-                                <li><a href="#">Pages</a>
-                                    <ul class="submenu right-sub-menu">
-                                        <li class="sub-parent"><a href="#">About Us</a>
-                                            <ul class="submenu">
-                                                <li><a href="about_us_1.html">About Us 01</a></li>
-                                                <li><a href="about_us_2.html">About Us 02</a></li>
-                                            </ul>
-                                            <!-- /.submenu -->
-                                        </li>
-
-
-                                    </ul>
-                                    <!-- /.submenu -->
-                                </li>
-
+                               
 
                             </ul>
                             <!-- /.menu -->

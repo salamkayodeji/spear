@@ -11,6 +11,8 @@ from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.sites.shortcuts import get_current_site
+
 
 
 
@@ -36,16 +38,14 @@ class Home(ListView):
         return context
 
     
-    
-    
-    
+def about(request):
+    return render(request, 'govlink/about.html', {})        
     
 
 class CourseCategory(ListView):
     model = Category
     template_name = 'govlink/course_categories.html'
     context_object_name= 'categories'
-    paginate_by='6'
 
 
     
@@ -65,9 +65,9 @@ class CourseList(ListView):
     template_name = 'govlink/course_list.html'
     context_object_name = 'post'
     def get_queryset(self, *args, **kwargs):
-
-        return  Post.objects.filter(coursecategory=self.kwargs ['pk'])
     
+        return  Post.objects.filter(coursecategory_id=self.kwargs ['slug'])
+   
    
    
        
@@ -75,7 +75,10 @@ class coursedetail(DetailView):
     model= Post
     template_name= 'govlink/course_detail.html'
     
-   
+class eventdetail(DetailView):
+    model= event
+    template_name= 'govlink/event_detail.html'
+
     
 def searchposts(request):
     if request.method == 'GET':

@@ -1,7 +1,7 @@
 {% extends "govlink/base.html" %}
 {% block content  %}
 {% load static %}
-<h1>Search Page</h1>
+<h3>Search Page</h3>
 
 <br/>
 <form action="{% url 'govlink:searchposts' %}" method="GET" value="{{request.GET.q}}">

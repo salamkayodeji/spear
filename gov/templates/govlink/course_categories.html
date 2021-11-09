@@ -11,7 +11,7 @@
                         <h1 class="title">Course Categories</h1>
                         <div class="breadcrumbs">
                             <ul>
-                                <li><a href="index-2.html">Home</a></li>
+                                <li><a href="{% url 'govlink:Home' %}">Home</a></li>
                                 <li>Course Categories</li>
                             </ul>                   
                         </div>
@@ -33,13 +33,12 @@
                     <div class="flat-courses">
                         <div class="courses-thumbnail" class = "img-fluid" style="width:300px;height:300px">
                             {%if categories.logo%}
-                            <a href="{% url 'govlink:courselist' pk=categories.pk %}"><img src="{{ categories.logo.url }}" class = "img-fluid" alt="image" style="width:300px;height:200px"></a>
+                            <a href="{% url 'govlink:courselist' slug=categories.slug %}"><img src="{{ categories.logo.url }}" class = "img-fluid" alt="image" style="width:300px;height:200px"></a>
                            {%endif%}
-                            <a class="courses-viewmore" href="{% url 'govlink:courselist' pk=categories.pk %}">{{ categories.category }}</a>
+                            <a class="courses-viewmore" href="{% url 'govlink:courselist' slug=categories.slug %}">{{ categories.category }}</a>
                         </div>
                         <div class="courses-content">
-                            <a href="{% url 'govlink:courselist' pk=categories.pk %}"><h6 class="courses-topic">{{ categories.category }}</h6></a>
-                            <p>{{ categories.creator }}</p>
+                            <a href="{% url 'govlink:courselist' slug=categories.slug %}"><h6 class="courses-topic">{{ categories.category }}</h6></a>
                         </div>
                     </div><!-- /.flat-courses -->
                 </div><!-- /.col-md-3 -->
@@ -47,7 +46,6 @@
                    
              {% endfor %}
             </div><!-- /.row -->
-            {% include 'govlink/pagination_links.html' %}
 
             
         </div><!-- /.container -->

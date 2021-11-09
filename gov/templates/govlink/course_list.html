@@ -1,5 +1,6 @@
 {% extends "govlink/base.html" %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 
  <!-- Page title -->
@@ -7,17 +8,19 @@
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
+                {% for post in post|slice:":1" %}
                 <div class="col-md-12">                    
                     <div class="page-title-heading">
                         <h1 class="title">{{ post.coursecategory }}</h1>
                         <div class="breadcrumbs">
                             <ul>
                                 <li><a href="{ url 'govlink:home' }">Home</a></li>
-                                <li>All Course</li>
+                                <li><a href="{ url 'govlink:CourseCategory' }">Category</a></li>
+                                <li>{{ post.coursecategory }} Courses</li>
                             </ul>                   
                         </div>
                     </div><!-- /.page-title-captions --> 
-                    
+                {%endfor%}    
                 </div><!-- /.col-md-12 -->  
             </div><!-- /.row -->  
         </div><!-- /.container -->                      
@@ -50,14 +53,14 @@
 
                                         <li class="courses-author"><a href="#">{{ post.author }}</a></li>
                                         {%else%}
-                                        <li class="courses-author"><a href="#">SPEARHEAD</a></li>
+                                        <li class="courses-author"><a href="#">GOVLINK</a></li>
                                         {%endif%}
                                     </ul>
                                     
                                     <div class="content">
                                         <p>{{post.date_1}}--{{post.date_2}} || {{post.date_3}}--{{post.date_4}} || {{post.date_5}} -- {{post.date_6}} </p>
                                     </div>
-                                    <div class="price"><p>{{ post.amount }}</p></div>
+                                    <div class="price"><p>${{post.amount|intcomma}}</p></div>
                                 </div>
                             </li>
                             <li>

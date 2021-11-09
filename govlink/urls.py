@@ -22,13 +22,8 @@ urlpatterns = [
     path('dash/', include('dash.urls')),
     path('admin/', admin.site.urls),
     path('', include('gov.urls')),
-    
-    
-    
-    
-    
 ]
-admin.site.site_header = 'SPEARHEAD Admin Panel'
+admin.site.site_header = 'GOVLINK Admin Panel'
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,69 @@
+ <!-- Page title -->
+ {% extends 'govlink/base.html' %} {% load humanize %} {% block content %}
+
+ <div class="page-title parallax parallax1">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">                    
+                <div class="page-title-heading">
+                    <h1 class="title">Our Services</h1>
+                    <div class="breadcrumbs">
+                        <ul>
+                            <li><a href="index-2.html">Home</a></li>
+                            <li>All Course 2</li>
+                        </ul>                   
+                    </div>
+                </div><!-- /.page-title-captions --> 
+                
+            </div><!-- /.col-md-12 -->  
+        </div><!-- /.row -->  
+    </div><!-- /.container -->                      
+</div><!-- /.page-title --> 
+ <!-- Blog single -->
+ <section class="main-content blog-single">        
+    <div class="post-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <article class="entry">
+                        <div class="feature-post">
+                            <img src="{{object.image.url}}" alt="{{object.name}}">
+                        </div><!-- /.feature-post -->
+                        <div class="main-post">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <h2 class="title-post"><a href="#">{{object.coursename}}</a></h2>
+                                    <div class="desc">
+                                        <p>DESCRIPTION</p>
+                                    </div>      
+                                    <div class="entry-post">
+                                    {{object.description|safe}}
+                                    </div><!-- /.entry-post -->
+                                    <ul class="flat-socials">
+                                        <li>
+                                            <a href="#" title="facebook"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="twitter"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="google-plus"><i class="fa fa-youtube-play"></i></a>
+                                        </li>                                            
+                                    </ul>
+                                </div><!-- /.col-md-8 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.main-post -->
+                    </article><!-- /.entry -->
+                </div><!-- /.col-md-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+
+    
+    </div><!-- /.post-wrap -->            
+</section>
+
+{% endblock %}

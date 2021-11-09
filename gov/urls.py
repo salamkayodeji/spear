@@ -13,10 +13,12 @@ from .views import (contact_us)
 app_name = 'govlink'
 urlpatterns = [
      path('', Home.as_view(), name ='Home'),
-     url(r'^category/$', views.CourseCategory.as_view(), name ='CourseCategory'),
+     path('about/', views.about, name= 'about'),
+     path('category/', views.CourseCategory.as_view(), name='CourseCategory'),
      url(r'^gallery/$', views.gallery.as_view(), name ='gallery'),
      path('coursedetail/<int:pk>/', views.coursedetail.as_view(), name = 'coursedetail'),
-     path('courselist/<int:pk>', views.CourseList.as_view(), name = 'courselist'),
+     path('courselist/<slug:slug>', views.CourseList.as_view(), name = 'courselist'),
+     path('services/<slug:slug>', views.eventdetail.as_view(), name = 'event'),
      url(r'^search/$', searchposts, name='searchposts'),
      url(r'^contact/$', contact_us, name='contact'),
      
