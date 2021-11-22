@@ -13,8 +13,6 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('category',)}
 
 
-
-
 class PostAdmin(admin.ModelAdmin):
     search_fields = ('coursename', )
     prepopulated_fields = {'slug': ('coursecategory',)}

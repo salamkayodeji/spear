@@ -37,6 +37,7 @@ class Home(ListView):
         # And so on for more models
         return context
 
+
     
 def about(request):
     return render(request, 'govlink/about.html', {})        

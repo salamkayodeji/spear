@@ -35,8 +35,8 @@
                     <div class="widget widget_categories">
                         <h4 class="widget-title">Links</h4>
                         <ul>
-                            <li><a href="{url 'govlink:CourseCategory'}">courses</a></li>
-                            <li><a href="#">Events</a></li>
+                            <li><a href="{% url 'govlink:Home' %}">Home</a></li>
+                            <li><a href="{% url 'govlink:CourseCategory' %}">courses</a></li>
 
                         </ul>
                     </div>
@@ -50,9 +50,9 @@
                     <div class="widget widget_categories">
                         <h4 class="widget-title">Our School</h4>
                         <ul>
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="{% url 'govlink:about' %}">About Us</a></li>
 
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="{% url 'govlink:contact' %}">Contact</a></li>
 
                         </ul>
                     </div>
